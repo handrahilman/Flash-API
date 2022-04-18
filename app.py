@@ -7,7 +7,7 @@ app = Flask(__name__)
 def users():
     if request.method == 'GET':
         query = """
-        SELECT * FROM aji.users
+        SELECT * FROM handra.users
         """
         conn, cursor = connection()
         cursor.execute(query)
@@ -18,7 +18,7 @@ def users():
         name = request.args.get('name')
         address = request.args.get('address')
         query = f"""
-        INSERT INTO aji.users (name, address)
+        INSERT INTO handra.users (name, address)
         VALUES ('{name}', '{address}')
         """
         conn, cursor = connection()
